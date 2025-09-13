@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <main class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="mb-4 text-center text-primary">Tareas Pendientes</h1>
+      <ul class="list-group">
+        {% for tarea in tareas %}
+          <li class="list-group-item d-flex justify-content-between align-items-center {% if tarea.important %}list-group-item-warning{% endif %}">
+            <div>
+              <a href="{% url 'detalle_tarea' tarea.id %}" class="text-decoration-none text-dark fw-bold">
+                {{ tarea.title }}
+              </a>
+              <small class="d-block text-muted">Autor: {{ tarea.user.username }}</small>
+            </div>
+            {% if tarea.important %}
+              <span class="badge bg-danger">Importante</span>
+            {% endif %}
+          </li>
+        {% empty %}
+          <li class="list-group-item text-center text-muted">No hay tareas pendientes.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
+{% endblock %}

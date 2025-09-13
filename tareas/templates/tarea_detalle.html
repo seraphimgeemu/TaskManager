@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{{ tarea.title }}
+<p>{{ tarea.description }}</p>
+<form action="{% url 'detalle_tarea' tarea.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar cambios</button>
+</form>
+
+<form action="{% url 'tarea_completada' tarea.id %}" method="POST">
+    {% csrf_token %}
+    <button>Completada</button>
+</form>
+
+<form action="{% url 'eliminar_tarea' tarea.id %}" method="POST">
+    {% csrf_token %}
+    <button>Eliminar</button>
+</form>
+
+{% endblock %}

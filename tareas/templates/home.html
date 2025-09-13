@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container py-4">
+<section class="card card-body">
+  <h1 class="display-3 text-center">Bienvenido a TaskManager</h1>
+  <p class="justify-content">Es una aplicación web desarrollada con 
+    Django que te permite gestionar tus tareas de forma eficiente y segura.
+    Regístrate, crea tus pendientes, edítalos, elimínalos y mantén el control
+    total de tus actividades. Además, cuenta con autenticación de usuarios y
+    rutas protegidas para garantizar tu privacidad.</p>
+    <div class="text-center">
+      {% if not user.is_authenticated %}
+    <a href="{% url 'signup' %}" class="btn btn-outline-primary me-2">Registrarse</a>
+    <a href="{% url 'signin' %}" class="btn btn-primary">Iniciar Sesión</a>
+      {% endif %}
+    </div>
+      {% if user.is_authenticated %}
+      <h4 class="text-center">Revisemos Nuestras Tareas! Hola, {{ user.username }} 👋</h4>
+      {% endif %}
+</section>
+</main>
+{% endblock %}

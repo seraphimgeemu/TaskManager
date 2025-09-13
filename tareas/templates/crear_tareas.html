@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Crear Tareas</h1>
+    <form action="{% url 'crear_tarea' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Crear Tarea</button>
+    </form>
+{% endblock %}
