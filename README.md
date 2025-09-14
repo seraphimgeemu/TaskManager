@@ -23,5 +23,5 @@ Este proyecto es una aplicación web desarrollada con Django que permite gestion
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/seraphimgeemu/
-   cd nombre-del-repositorio
+   git clone https://github.com/seraphimgeemu/TaskManager
+   cd TaskManager
