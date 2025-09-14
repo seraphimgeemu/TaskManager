@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Crear Tareas</h1>
-    <form action="{% url 'crear_tarea' %}" method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit">Crear Tarea</button>
-    </form>
+<main class="container">
+        <div class="col-md-6 offset-md-3 card card-body">
+            <h1>Crear Tareas</h1>
+            <form action="{% url 'crear_tarea' %}" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-primary">Crear Tarea</button>
+            </form>
+        </div>
+</main>
 {% endblock %}
