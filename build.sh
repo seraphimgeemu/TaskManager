@@ -1,6 +1,5 @@
 set -o errexit
 #poetry install
-pip install -r requiremenst.txt
 #pip install gunicorn
 #pip install dj-database-url
 #pip install whitenoise
