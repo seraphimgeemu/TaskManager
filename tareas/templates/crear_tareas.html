@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<main class="container">
-        <div class="col-md-6 offset-md-3 card card-body">
-            <h1>Crear Tareas</h1>
-            <form action="{% url 'crear_tarea' %}" method="POST">
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit" class="btn btn-primary">Crear Tarea</button>
-            </form>
-        </div>
-</main>
+  <!-- Seccion para crear tareas -->
+  <main class="container">
+    <div class="col-md-6 offset-md-3 card card-body">
+      <h1>Crear Tareas</h1>
+      <form action="{% url 'crear_tarea' %}" method="POST">
+        {% csrf_token %}
+        <!-- Formulario para crear una tarea -->
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Crear Tarea</button>
+      </form>
+    </div>
+  </main>
 {% endblock %}

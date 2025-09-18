@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <!-- Seccion para listar las tareas -->
  <main class="container mt-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
+      <!-- Seccion para listar las tareas  pendientes-->
       <h1 class="mb-4 text-center text-primary">Tareas Pendientes</h1>
       <ul class="list-group">
         {% for tarea in tareas %}
+        <!-- Se comprueba si es importante o no la tarea y se muestra el resultado de una sentencia if -->
           <li class="list-group-item d-flex justify-content-between align-items-center {% if tarea.important %}list-group-item-warning{% endif %}">
             <div>
               <a href="{% url 'detalle_tarea' tarea.id %}" class="text-decoration-none text-dark fw-bold">
@@ -14,10 +17,12 @@
               </a>
               <small class="d-block text-muted">Autor: {{ tarea.user.username }}</small>
             </div>
+            <!-- Mostrar etiqueta si la tarea es importante -->
             {% if tarea.important %}
               <span class="badge bg-danger">Importante</span>
             {% endif %}
           </li>
+          <!-- Mostrar mensaje si no hay tareas pendientes -->
         {% empty %}
           <li class="list-group-item text-center text-muted">No hay tareas pendientes.</li>
         {% endfor %}
